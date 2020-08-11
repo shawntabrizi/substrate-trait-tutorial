@@ -1,8 +1,15 @@
 #![allow(dead_code)]
 
 use std::collections::HashMap;
+use std::cmp::Eq;
+use std::hash::Hash;
 use num::traits::{CheckedAdd, CheckedSub, Zero};
-use super::Trait;
+
+pub trait Trait {
+	type AccountId: Eq + Hash;
+	type Balance: Zero + CheckedAdd + CheckedSub + Copy;
+	type VoteIndex: Eq + Hash;
+}
 
 pub struct BalancesModule<T: Trait> {
 	balances: HashMap<T::AccountId, T::Balance>,
