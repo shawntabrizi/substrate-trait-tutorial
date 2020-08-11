@@ -96,7 +96,6 @@ fn test_step_4() {
 
 #[test]
 fn test_step_5() {
-
 	struct Runtime;
 	impl step5::Trait for Runtime {
 		type AccountId = u32;
